@@ -1,5 +1,5 @@
 // 引入mock.js，不使用时注释掉，build前要注释掉
-// import '@/mock'
+import '@/mock'
 /*global chrome*/
 
 // 请求服务器地址（开发环境模拟请求地址）
@@ -18,7 +18,7 @@ export const API_CODE = {
     // API请求正常，空数据
     ERR_NO_DATA: 301,
     // API请求正常，登录异常
-    ERR_LOGOUT: 401,
+    ERR_LOGOUT: 401
 }
 // API请求异常报错内容
 export const API_FAILED = '网络连接异常，请稍后再试'
@@ -43,7 +43,7 @@ export const apiReqs = {
         config.url = API_DOMAIN + 'submit/'
         config.method = 'post'
         apiFetch(config)
-    },
+    }
 }
 
 // 发起请求
@@ -97,7 +97,7 @@ export function apiRequest(config) {
     let axiosConfig = {
         method: config.method,
         headers,
-        body: data,
+        body: data
     }
 
     // 发起请求
@@ -127,7 +127,7 @@ function sendRequestToBackground(config) {
             {
                 // 带上标识，让background script接收消息时知道此消息是用于请求API
                 contentRequest: 'apiRequest',
-                config: config,
+                config: config
             },
             (result) => {
                 // 接收background script的sendResponse方法返回的消数据result

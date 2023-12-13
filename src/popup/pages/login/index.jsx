@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Input } from 'antd'
 import { apiReqs } from '@/api'
-// import imgLogo from './logo.png'
 import './login.scss'
 
 function Login() {

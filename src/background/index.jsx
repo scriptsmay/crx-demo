@@ -16,13 +16,13 @@ chrome.runtime.onInstalled.addListener(function () {
                         // 适配所有域名以“.antgroup.com”结尾的网页
                         // hostSuffix: '.antgroup.com',
                         // 适配域名为“ant-design.antgroup.com”的网页
-                        hostEquals: 'ant-design.antgroup.com',
+                        hostEquals: 'ant-design.antgroup.com'
                         // 适配https协议的网页
                         // schemes: ['https'],
-                    },
-                }),
+                    }
+                })
             ],
-            actions: [new chrome.declarativeContent.ShowAction()],
+            actions: [new chrome.declarativeContent.ShowAction()]
         }
         // 整合所有规则
         const rules = [rule]
@@ -33,7 +33,7 @@ chrome.runtime.onInstalled.addListener(function () {
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     // 接收来自content script的消息，requset里不允许传递function和file类型的参数
-    chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+    chrome.tabs.query({ currentWindow: true, active: true }, function () {
         const { contentRequest } = request
         // 接收来自content的api请求
         if (contentRequest === 'apiRequest') {
@@ -47,7 +47,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             config.fail = (msg) => {
                 sendResponse({
                     result: 'fail',
-                    msg,
+                    msg
                 })
             }
             // 发起请求
